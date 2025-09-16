@@ -10,13 +10,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  TextEditingController controllerLogin = TextEditingController();
+  TextEditingController controllerSenha = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -80,8 +75,9 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 10),
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: const Color.fromARGB(255, 255, 0, 0),
+                borderRadius: BorderRadius.circular(20), 
+                border: Border.all(color:  Color.fromARGB(255, 111, 0, 255)), 
+                color: Color.fromARGB(255, 168, 162, 230),
               ),
               height: 250,
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -98,13 +94,45 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+            SizedBox(height: 30),
+            TextField(
+              controller: controllerLogin,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "Digite seu login",
+              ),
+            ),
+            SizedBox(height: 20),
+            TextField(
+              controller: controllerSenha,
+              obscureText: true,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "Digite sua senha",
+              ),
+            ),
+            SizedBox(height: 20),
+            SizedBox(
+              width: 350,
+              height: 60,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromARGB(255, 10, 11, 71),
+                  textStyle: TextStyle(fontSize: 15),
+                ),
+                onPressed: () 
+              {print(controllerLogin.text); 
+              print(controllerSenha.text);
+              }, 
+              child: Row( mainAxisAlignment: MainAxisAlignment.center, 
+              children: [
+                Icon(Icons.login), 
+              SizedBox(width: 10),
+              Text('Login')
+              ])),
+            ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.delete),
       ),
     );
   }

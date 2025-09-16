@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           seedColor: const Color.fromARGB(255, 10, 11, 71),
         ),
       ),
-      home: const MyHomePage(title: 'Pontos'),
+      home: const MyHomePage(title: 'Login'),
     );
   }
 }
